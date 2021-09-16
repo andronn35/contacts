@@ -1,0 +1,38 @@
+.newContactContainer {
+  display: flex;
+}
+
+.img {
+  margin-top: 20px;
+}
+
+.img:hover {
+  cursor: pointer;
+}
+
+.newContact {
+  width: 300px;
+  padding: 10px;
+  margin-right: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+  margin-left: 20px;
+}
+
+.newName,
+.newPhone,
+.newCity {
+  display: flex;
+  justify-content: space-between;
+  background-color: #fff;
+  
+}
+
+.newName input,
+.newPhone input,
+.newCity input {
+  width: 220px;
+  background-color: #fff;
+}
+

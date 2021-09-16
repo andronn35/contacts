@@ -1,0 +1,44 @@
+.contactContainer {
+  display: flex;
+  padding: 20px;
+}
+
+.delete {
+  padding-top: 20px;
+}
+
+.delete img:hover {
+  cursor: pointer;
+}
+
+.contact {
+  width: 300px;
+  padding: 10px;
+  margin-right: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #fff;
+}
+
+.contact div {
+  background-color: #fff;
+}
+
+.name,
+.phone,
+.city {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name img,
+.phone img,
+.city img {
+  background-color: #fff;
+}
+
+.name img:hover,
+.phone img:hover,
+.city img:hover {
+  cursor: pointer;
+} 
