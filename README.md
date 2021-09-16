@@ -3,6 +3,7 @@
 ### How to run?
 
 ##### Locally:
+- `npm i`
 - `npm run dev`
 
 ##### Docker container:
