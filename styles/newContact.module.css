@@ -36,3 +36,37 @@
   background-color: #fff;
 }
 
+/* .hasError {
+  color: red;
+  border: 1px solid black;
+  border-radius: 5px;
+  height: 22px;
+} */
+
+.hasError {
+  margin-top: -15px;
+  margin-left: -20px;
+	border:1px solid rgb(228, 213, 167);
+  color: red;
+	border-radius:10px;
+  padding-bottom: 5px;
+  padding-left: 10px;
+	height:22px;
+	width:150px;
+	background-color: rgb(228, 213, 167);
+	position:relative;
+}
+.hasError:before {
+	border:8px solid transparent;
+	border-top-color:rgb(228, 213, 167);
+	position:absolute;
+	top:100%;
+	
+	content:'';
+}
+
+
+.noError {
+  display: none;
+}
+

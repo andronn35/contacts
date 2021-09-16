@@ -1,3 +1,4 @@
+import InputMask from 'react-input-mask';
 import classes from '../styles/contact.module.css'
 import { useDispatch } from 'react-redux';
 import { deleteContact, changeValue } from './../redux/contactsReducer';
@@ -13,6 +14,13 @@ const Contact = (props) => {
   const [isEditingPhone, setIsEditingPhone] = useState(false)
   const [isEditingCity, setisEditingCity] = useState(false)
 
+  const onChangeValue = (e) => {
+    if (e.target.value) {
+      dispatch(changeValue(props.id, e.target.value, e.target.name))
+    }
+    
+  }
+
   return (
     <div className={classes.contactContainer}>
       <div className={classes.contact}>
@@ -21,7 +29,7 @@ const Contact = (props) => {
           <div>
             Name: {isEditingName ? 
               <input name="name" autoFocus={true} onBlur={() => setIsEditingName(false)}  
-              onChange={(e) => dispatch(changeValue(props.id, e.target.value, e.target.name))}/> :
+              onChange={onChangeValue}/> :
               props.name}
           </div>
           <div>
@@ -38,8 +46,8 @@ const Contact = (props) => {
         <div className={classes.phone}>
           <div>
             Phone: {isEditingPhone ? 
-              <input name="phone" autoFocus={true} onBlur={() => setIsEditingPhone(false)} 
-              onChange={(e) => dispatch(changeValue(props.id, e.target.value, e.target.name))}/> :
+              <InputMask name="phone" autoFocus={true} onBlur={() => setIsEditingPhone(false)} 
+              onChange={onChangeValue} mask={'+7(999)999-99-99'}></InputMask> :
               props.phone}
           </div>
           <div>
@@ -57,7 +65,7 @@ const Contact = (props) => {
           <div>
             City: {isEditingCity ? 
               <input name="city" autoFocus={true} onBlur={() => setisEditingCity(false)} 
-              onChange={(e) => dispatch(changeValue(props.id, e.target.value, e.target.name))}/> : 
+              onChange={onChangeValue}/> : 
               props.city}
           </div>
           <div>

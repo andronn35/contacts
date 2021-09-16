@@ -1,4 +1,4 @@
-
+import InputMask from 'react-input-mask';
 import classes from '../styles/newContact.module.css'
 import Image from 'next/image'
 import add from '../img/addUser.png'
@@ -16,6 +16,7 @@ const NewContact = () => {
     phone: '',
     city:''
   })
+  const [error, setError] = useState(false)
 
   const onHandleChange = (e) => {
     let name = e.target.name;
@@ -24,14 +25,21 @@ const NewContact = () => {
   }
 
   const onAddClick = () => {
-    let newContactCopy = JSON.parse(JSON.stringify(newContact))
+    if (newContact.name.trim() === '' || newContact.phone.trim() === '' || newContact.city.trim() === '') {
+      setError(true)
+    } else {
+      let newContactCopy = JSON.parse(JSON.stringify(newContact))
     dispatch(addContact(newContactCopy))
+    setError(false)
     setNewContact({
       id: '',
       name: '',
       phone: '',
       city:''});
-  }
+    }
+    
+    }
+    
 
   return (
     <div className={classes.newContactContainer}>
@@ -45,7 +53,11 @@ const NewContact = () => {
 
           <div className={classes.newPhone}>Phone:
             <div>
-              <input type="tel" name="phone" value={newContact.phone} onChange={onHandleChange}/>
+              <InputMask mask={'+7(999)999-99-99'} name="phone" value={newContact.phone} onChange={onHandleChange}>
+                
+              </InputMask>
+              
+              
             </div>
           </div>
 
@@ -62,6 +74,10 @@ const NewContact = () => {
           alt='addUser'
           onClick={onAddClick}
         />
+      </div>
+
+      <div className={error ? classes.hasError : classes.noError}>
+        Fill in all the fields
       </div>
       
     </div>
